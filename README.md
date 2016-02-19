@@ -218,3 +218,6 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d{yyyy-MM-dd HH\:mm\:ss,SSS} %5
 		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/log4j.properties">log4j.properties</a>:`可选`
 		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/pom.xml">pom.xml</a>
 * 推荐开启`-XX:+PrintGCDetails`
+
+- - -
+##更多功能
