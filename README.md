@@ -216,5 +216,5 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d{yyyy-MM-dd HH\:mm\:ss,SSS} %5
 		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/kepler-client.xml">kepler-client.xml</a>:`Kepler客户端配置`
 		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/kepler.conf">kepler.conf</a>:`框架配置文件`
 		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/log4j.properties">log4j.properties</a>:`可选`
-		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/pom.xml">pom.xml</a
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/pom.xml">pom.xml</a>
 * 推荐开启`-XX:+PrintGCDetails`
