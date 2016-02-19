@@ -48,7 +48,7 @@
 
 ###构建第一个服务
   * 构建约定: `标准Maven目录结构`
-  * <a href="code/start.zip">示例下载</a>, 可用于对照以下流程
+  * <a href="https://github.com/KimShen/Kepler_Example/blob/master/start.zip">示例下载</a>, 可用于对照以下流程
   * 目录结构: 
 	  * src/main/java
 		  * 示例代码
@@ -199,7 +199,7 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d{yyyy-MM-dd HH\:mm\:ss,SSS} %5
 
 ###如何从Dubbo迁移
 * <a href="http://dubbo.io/User+Guide-zh.htm#UserGuide-zh-%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8">关于Dubbo</a>
-* <a href="code/migrate.zip">示例下载</a>, 可用于对照以下流程
+* <a href="https://github.com/KimShen/Kepler_Example/blob/master/migrate.zip">示例下载</a>, 可用于对照以下流程
 * 目录结构: 
   * src/main/java
 	  * <a href="code/migrate/src/main/java/com/alibaba/dubbo/demo">com.alibaba.dubbo.demo.provider</a>
