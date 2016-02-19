@@ -60,7 +60,7 @@
 		  `框架配置文件`
 		  * log4j.properties
 		  `可选`
-	  * <a href="https://github.com/KimShen/Kepler_Example/tree/master/start/pom.xml">pom.xml</a>
+	  * <a href="https://github.com/KimShen/Kepler_Example/blob/master/start/pom.xml">pom.xml</a>
 	  
 - - -
 
@@ -184,7 +184,7 @@ public class Client {
 </beans>
 ```
 
-######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/kepler-client.xml">kepler.conf</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/kepler.conf">kepler.conf</a>
 ```
 com.kepler.zookeeper.zkfactory.host=127.0.0.1:2781			
 ```
