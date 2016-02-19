@@ -48,7 +48,7 @@
 
 ###构建第一个服务
   * 构建约定: `标准Maven目录结构`
-  * <a href="https://github.com/KimShen/Kepler_Example/blob/master/start.zip">示例下载</a>, 可用于对照以下流程
+  * <a href="https://github.com/KimShen/Kepler_Example/tree/master/start">示例下载</a>, 可用于对照以下流程
   * 目录结构: 
 	  * src/main/java
 		  * 示例代码
@@ -64,7 +64,7 @@
 	  
 - - -
 
-######<a href="code/start/src/main/java/com/kepler/demo/start/QuickStart.java">定义服务接口</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/com/kepler/demo/start/QuickStart.java">定义服务接口</a>
 
 ```
 package com.kepler.demo.start;
@@ -76,7 +76,7 @@ public interface QuickStart {
 ```
 `@Service(version = "0.0.1")标记该接口为服务接口,版本为0.0.1`  
 
-######<a href="code/start/src/main/java/com/kepler/demo/start/HelloWorld.java">定义数据对象</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/com/kepler/demo/start/HelloWorld.java">定义数据对象</a>
 ```
 package com.kepler.demo.start;
 public interface HelloWorld {  			
@@ -84,7 +84,7 @@ public interface HelloWorld {
 }
 ``` 
 
-######<a href="code/start/src/main/java/com/kepler/demo/start/impl/QuickStartImpl.java">定义服务实现</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/com/kepler/demo/start/impl/QuickStartImpl.java">定义服务实现</a>
 ```
 package com.kepler.demo.start.impl;
 import com.kepler.annotation.Service;
@@ -99,7 +99,7 @@ public class QuickStartImpl implements QuickStart {
 ```
 `@Autowired表示将自动发布服务`
 
-######<a href="code/start/src/main/java/com/kepler/demo/start/impl/HelloWorldImpl.java">定义数据对象实现</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/com/kepler/demo/start/impl/HelloWorldImpl.java">定义数据对象实现</a>
 ```
 package com.kepler.demo.start.impl;
 import java.io.Serializable;
@@ -118,7 +118,7 @@ public class HelloWorldImpl implements Serializable, HelloWorld {
 }
 ```
 
-######<a href="code/start/src/main/java/com/kepler/demo/main/Server.java">定义服务端启动类</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/com/kepler/demo/main/Server.java">定义服务端启动类</a>
 ```
 package com.kepler.demo.main;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -132,7 +132,7 @@ public class Server {
 }
 ```
 
-######<a href="code/start/src/main/java/com/kepler/demo/main/Client.java">定义客户端启动类</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/com/kepler/demo/main/Client.java">定义客户端启动类</a>
 ```
 package com.kepler.demo.main;
 import junit.framework.Assert;
@@ -148,7 +148,7 @@ public class Client {
 }
 ```
 
-######<a href="code/start/src/main/java/kepler-service.xml">定义服务端配置(kepler-service.xml)</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/kepler-service.xml">定义服务端配置(kepler-service.xml)</a>
 ```	
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" 
@@ -165,7 +165,7 @@ public class Client {
 </beans>
 ```
 
-######<a href="code/start/src/main/java/kepler-client.xml">定义客户端配置(kepler-client.xml)</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/kepler-client.xml">定义客户端配置(kepler-client.xml)</a>
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" 
@@ -184,12 +184,12 @@ public class Client {
 </beans>
 ```
 
-######<a href="code/start/src/main/java/kepler-client.xml">kepler.conf</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/kepler-client.xml">kepler.conf</a>
 ```
 com.kepler.zookeeper.zkfactory.host=127.0.0.1:2781			
 ```
 
-######<a href="code/start/src/main/java/kepler-client.xml">log4j.properties(可选)</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/kepler-client.xml">log4j.properties(可选)</a>
 ```
 log4j.rootLogger=INFO,CONSOLE
 log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
