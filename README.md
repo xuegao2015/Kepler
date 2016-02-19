@@ -184,7 +184,7 @@ public class Client {
 </beans>
 ```
 
-######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/kepler.conf">kepler.conf</a>
+######<a href="https://github.com/KimShen/Kepler_Example/tree/master/start/src/main/java/kepler.conf">kepler.conf</a>(需修改为实际ZooKeeper地址)
 ```
 com.kepler.zookeeper.zkfactory.host=127.0.0.1:2781			
 ```
@@ -199,7 +199,7 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d{yyyy-MM-dd HH\:mm\:ss,SSS} %5
 
 ###如何从Dubbo迁移
 * <a href="http://dubbo.io/User+Guide-zh.htm#UserGuide-zh-%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8">关于Dubbo</a>
-* <a href="https://github.com/KimShen/Kepler_Example/blob/master/migrate.zip">示例下载</a>, 可用于对照以下流程
+* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate">示例下载</a>, 可用于对照以下流程
 * 目录结构: 
   * src/main/java
 	  * <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/com/alibaba/dubbo/demo">com.alibaba.dubbo.demo.provider</a>
