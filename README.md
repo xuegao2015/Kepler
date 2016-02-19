@@ -201,24 +201,20 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d{yyyy-MM-dd HH\:mm\:ss,SSS} %5
 * <a href="http://dubbo.io/User+Guide-zh.htm#UserGuide-zh-%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8">关于Dubbo</a>
 * <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate">示例下载</a>, 可用于对照以下流程
 * 目录结构: 
-  * src/main/java
-	  * <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/com/alibaba/dubbo/demo">com.alibaba.dubbo.demo.provider</a>
-	  `迁移服务`
-	  * <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/main/dubbo">main.dubbo</a>
-	  `Dubbo启动入口`
-	  * <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/main/kepler">main.kepler</a>
-	  `Kepler启动入口`
-	  * <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/dubbo-provider.xml">dubbo-provider.xml</a>
-	  `Dubbo服务端配置`
+	* src/main/java
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/com/alibaba/dubbo/demo">com.alibaba.dubbo.demo.provider</a>
+		`迁移服务`
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/main/dubbo">main.dubbo</a>
+		`Dubbo启动入口`
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/main/kepler">main.kepler</a>
+		`Kepler启动入口`
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/dubbo-provider.xml">dubbo-provider.xml</a>
+		`Dubbo服务端配置`
 		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/dubbo-consumer.xml">dubbo-consumer.xml</a>
 		`Dubbo客户端配置`
-		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/kepler-service.xml">kepler-service.xml</a>
-		`Kepler服务端配置`
-		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/kepler-client.xml">kepler-client.xml</a>
-		`Kepler客户端配置`
-		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/kepler.conf">kepler.conf</a>
-		`框架配置文件`
-		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/log4j.properties">log4j.properties</a>
-		`可选`
-	* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/pom.xml">pom.xml</a>
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/kepler-service.xml">kepler-service.xml</a>:`Kepler服务端配置`
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/kepler-client.xml">kepler-client.xml</a>:`Kepler客户端配置`
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/kepler.conf">kepler.conf</a>:`框架配置文件`
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/src/main/java/log4j.properties">log4j.properties</a>:`可选`
+		* <a href="https://github.com/KimShen/Kepler_Example/tree/master/migrate/pom.xml">pom.xml</a
 * 推荐开启`-XX:+PrintGCDetails`
