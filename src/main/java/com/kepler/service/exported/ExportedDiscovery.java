@@ -12,6 +12,7 @@ import com.kepler.KeplerLocalException;
 import com.kepler.annotation.Autowired;
 import com.kepler.annotation.Service;
 import com.kepler.config.Profile;
+import com.kepler.org.apache.commons.lang.StringUtils;
 import com.kepler.service.Exported;
 
 /**
@@ -52,7 +53,8 @@ public class ExportedDiscovery implements BeanPostProcessor {
 		for (Class<?> each : this.services(new ArrayList<Class<?>>(), bean.getClass())) {
 			try {
 				Service exported = AnnotationUtils.findAnnotation(each, Service.class);
-				this.exported(each, bean, profile, AnnotationUtils.findAnnotation(each, Service.class).catalog(), (version != null ? version : new String[] { exported.version() }));
+				// Version.length=1并且Version[0]为空则表示使用没有指定Autowired.Version
+				this.exported(each, bean, profile, AnnotationUtils.findAnnotation(each, Service.class).catalog(), (version.length == 1 && StringUtils.isEmpty(version[0])) ? new String[] { exported.version() } : version);
 			} catch (Exception e) {
 				throw new KeplerLocalException(e);
 			}

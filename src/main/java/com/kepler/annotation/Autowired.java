@@ -23,7 +23,7 @@ public @interface Autowired {
 	 * 
 	 * @return
 	 */
-	String[] version();
+	String[] version() default "";
 
 	/**
 	 * Profile逻辑名
