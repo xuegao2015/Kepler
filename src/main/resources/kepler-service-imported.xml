@@ -12,9 +12,10 @@
 				<ref bean="kepler.service.imported.invoker.compete" />
 				<ref bean="kepler.service.imported.invoker.async" />
 				<ref bean="kepler.service.imported.invoker.main" />
-				<ref bean="kepler.service.imported.zookeeper" />
 				<ref bean="kepler.service.imported.collector" />
 				<ref bean="kepler.service.imported.quiet" />
+				<!-- ZK为最终发布, 需要放在末尾 -->
+				<ref bean="kepler.service.imported.zookeeper" />
 			</util:list>
 		</constructor-arg>
 	</bean>

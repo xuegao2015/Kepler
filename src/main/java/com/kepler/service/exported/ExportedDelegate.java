@@ -61,7 +61,7 @@ public class ExportedDelegate {
 	 * @param profiles
 	 */
 	public ExportedDelegate(Class<?> service, Object instance, String profile, String version, Exported exported, Profile profiles) {
-		this(service, instance, profile, version, Service.DEF_CATALOG, exported, profiles);
+		this(service, instance, profile, version, null, exported, profiles);
 	}
 
 	/**
@@ -78,8 +78,7 @@ public class ExportedDelegate {
 		this.exported = exported;
 		this.instance = instance;
 		this.service = new Service(service, version, catalog);
-		// 追加Profile(默认为Class全名小写)
-		profiles.add(this.service, (profile == null || profile.trim().isEmpty()) ? this.service.service().getName().toLowerCase() : profile);
+		profiles.add(this.service, profile);
 	}
 
 	public void init() throws Exception {

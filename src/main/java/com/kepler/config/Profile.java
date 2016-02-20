@@ -20,8 +20,16 @@ public class Profile {
 
 	private final Map<Service, String> profiles = new HashMap<Service, String>();
 
+	/**
+	 * 如果没有指定偏好则使用全类名作为偏好
+	 * 
+	 * @param service
+	 * @param profile
+	 * @return
+	 */
 	public Profile add(Service service, String profile) {
-		this.profiles.put(service, StringUtils.defaultString(profile, Service.DEF_PROFILE));
+		// 如果Profile为空(Null | "")则使用全类名
+		this.profiles.put(service, StringUtils.isEmpty(profile) ? service.service().getName().toLowerCase() : profile);
 		return this;
 	}
 

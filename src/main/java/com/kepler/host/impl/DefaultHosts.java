@@ -13,30 +13,16 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.kepler.KeplerLocalException;
-import com.kepler.KeplerRoutingException;
-import com.kepler.config.Profile;
-import com.kepler.config.PropertiesUtils;
 import com.kepler.host.Host;
 import com.kepler.host.HostLocks;
 import com.kepler.host.HostState;
 import com.kepler.host.Hosts;
-import com.kepler.protocol.Request;
-import com.kepler.router.Routing;
-import com.kepler.router.filter.HostFilter;
-import com.kepler.router.routing.Routings;
 import com.kepler.service.Service;
 
 /**
  * @author kim 2015年12月30日
  */
 public class DefaultHosts implements Hosts {
-
-	private final static String ROUTING_KEY = DefaultHosts.class.getName().toLowerCase() + ".routing";
-
-	/**
-	 * 默认路由策略
-	 */
-	private final static String ROUTING_DEF = PropertiesUtils.get(DefaultHosts.ROUTING_KEY, Routing.NAME);
 
 	private final static List<Host> EMPTY = Collections.unmodifiableList(new ArrayList<Host>());
 
@@ -62,18 +48,9 @@ public class DefaultHosts implements Hosts {
 
 	private final Service service;
 
-	private final Profile profile;
-
-	private final Routings routings;
-
-	private final HostFilter filter;
-
-	public DefaultHosts(Service service, HostFilter filter, Profile profile, Routings routings) {
+	public DefaultHosts(Service service) {
 		super();
-		this.filter = filter;
 		this.service = service;
-		this.profile = profile;
-		this.routings = routings;
 	}
 
 	private String detail(Host host, String action) {
@@ -144,17 +121,12 @@ public class DefaultHosts implements Hosts {
 		}
 	}
 
-	public Host host(Request request) {
-		// PropertiesUtils.profile(DefaultHosts.this.profiles.profile(this.service), DefaultHosts.ROUTING_KEY, DefaultHosts.ROUTING_DEF), 当前Service对应负载策略(可变)
-		return this.routings.get(PropertiesUtils.profile(DefaultHosts.this.profile.profile(this.service), DefaultHosts.ROUTING_KEY, DefaultHosts.ROUTING_DEF)).route(request, this.hosts(request));
+	public List<Host> main() {
+		return this.tags.get(Host.TAG_DEF);
 	}
 
-	// 只读(协商)
-	public List<Host> hosts(Request request) {
-		// Request.header(Host.TAG_KEY, Host.TAG_DEF)), 获取Tag, 如果不存在则使用默认""
-		// 获取Tag对应Host集合, 如果不存在则使用Main集合
-		List<Host> hosts = this.tags(request.get(Host.TAG_KEY, Host.TAG_DEF));
-		return this.valid(request, this.filter.filter(request, hosts.isEmpty() ? this.main() : hosts));
+	public List<Host> tags(String tag) {
+		return this.tags.get(tag);
 	}
 
 	@Override
@@ -174,21 +146,6 @@ public class DefaultHosts implements Hosts {
 		default:
 			throw new KeplerLocalException("Unvalid state for " + state);
 		}
-	}
-
-	private List<Host> main() {
-		return this.tags.get(Host.TAG_DEF);
-	}
-
-	private List<Host> tags(String tag) {
-		return this.tags.get(tag);
-	}
-
-	private List<Host> valid(Request request, List<Host> hosts) {
-		if (hosts.isEmpty()) {
-			throw new KeplerRoutingException("None service for " + request.service());
-		}
-		return hosts;
 	}
 
 	private class Tags {

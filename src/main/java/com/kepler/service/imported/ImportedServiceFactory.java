@@ -56,7 +56,7 @@ public class ImportedServiceFactory<T> implements FactoryBean<T> {
 	private final Invoker invoker;
 
 	private ImportedServiceFactory(Class<T> clazz, com.kepler.annotation.Service service, String profile, Invoker invoker, RequestValidation validation, RequestFactory factory, HeadersContext header, HeadersProcessor processor, IDGenerator generator, Profile profiles, Serials serials, Imported imported) {
-		this(clazz, profile, service.version(), Service.DEF_CATALOG, invoker, validation, factory, header, processor, generator, profiles, serials, imported);
+		this(clazz, profile, service.version(), null, invoker, validation, factory, header, processor, generator, profiles, serials, imported);
 	}
 
 	// 使用@Service获取信息, 并使用Profile=null
@@ -82,8 +82,7 @@ public class ImportedServiceFactory<T> implements FactoryBean<T> {
 		this.validation = validation;
 		this.methods = Arrays.asList(clazz.getMethods());
 		this.service = new Service(clazz, version, catalog);
-		// 追加Profile(默认为Class全名小写)
-		this.profile = profiles.add(this.service, (profile == null || profile.trim().isEmpty()) ? this.service.service().getName().toLowerCase() : profile);
+		this.profile = profiles.add(this.service, profile);
 	}
 
 	public T getObject() throws Exception {

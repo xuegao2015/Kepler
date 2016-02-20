@@ -1,8 +1,7 @@
 package com.kepler.host;
 
 import java.util.Collection;
-
-import com.kepler.protocol.Request;
+import java.util.List;
 
 /**
  * @author kim 2015年7月9日
@@ -19,9 +18,18 @@ public interface Hosts {
 
 	public boolean ban(Host host);
 
-	public Host host(Request request);
+	/**
+	 * 获取默认主机集合
+	 * @return
+	 */
+	public List<Host> main();
 
-	public Collection<Host> hosts(Request request);
+	/**
+	 * 获取指定标签主机集合
+	 * @param tag
+	 * @return
+	 */
+	public List<Host> tags(String tag);
 
 	/**
 	 * 获取指定地址的主机

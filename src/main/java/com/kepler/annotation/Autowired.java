@@ -19,11 +19,11 @@ import java.lang.annotation.Target;
 public @interface Autowired {
 
 	/**
-	 * 实际发布版本, 覆盖@Service
+	 * 实际发布版本, 覆盖@Service. 支持多版本
 	 * 
 	 * @return
 	 */
-	String version() default "";
+	String[] version();
 
 	/**
 	 * Profile逻辑名
@@ -31,11 +31,4 @@ public @interface Autowired {
 	 * @return
 	 */
 	String profile() default "";
-
-	/**
-	 * 版本兼容性
-	 * 
-	 * @return
-	 */
-	String compatible() default "";
 }

@@ -1,10 +1,12 @@
 package com.kepler.host.impl;
 
-import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import com.kepler.KeplerRoutingException;
 import com.kepler.config.Profile;
+import com.kepler.config.PropertiesUtils;
 import com.kepler.connection.Connects;
 import com.kepler.host.Host;
 import com.kepler.host.HostLocks;
@@ -12,6 +14,7 @@ import com.kepler.host.Hosts;
 import com.kepler.host.HostsContext;
 import com.kepler.protocol.Request;
 import com.kepler.router.Router;
+import com.kepler.router.Routing;
 import com.kepler.router.filter.HostFilter;
 import com.kepler.router.routing.Routings;
 import com.kepler.service.Service;
@@ -20,6 +23,13 @@ import com.kepler.service.Service;
  * @author kim 2015年7月9日
  */
 public class DefaultHostContext implements HostsContext, Router {
+
+	private final static String ROUTING_KEY = DefaultHostContext.class.getName().toLowerCase() + ".routing";
+
+	/**
+	 * 默认路由策略
+	 */
+	private final static String ROUTING_DEF = PropertiesUtils.get(DefaultHostContext.ROUTING_KEY, Routing.NAME);
 
 	/**
 	 * 服务 - 主机映射
@@ -63,7 +73,7 @@ public class DefaultHostContext implements HostsContext, Router {
 
 	public Hosts getOrCreate(Service service) {
 		Hosts hosts = this.hosts.get(service);
-		return hosts != null ? hosts : this.create(service, new DefaultHosts(service, this.filter, this.profile, this.routings));
+		return hosts != null ? hosts : this.create(service, new DefaultHosts(service));
 	}
 
 	@Override
@@ -100,12 +110,24 @@ public class DefaultHostContext implements HostsContext, Router {
 		return this.hosts;
 	}
 
-	@Override
 	public Host host(Request request) {
-		return this.getOrCreate(request.service()).host(request);
+		Routing routing = this.routings.get(PropertiesUtils.profile(this.profile.profile(request.service()), DefaultHostContext.ROUTING_KEY, DefaultHostContext.ROUTING_DEF));
+		return routing.route(request, this.hosts(request));
 	}
 
-	public Collection<Host> hosts(Request request) {
-		return this.getOrCreate(request.service()).hosts(request);
+	// 只读(协商)
+	public List<Host> hosts(Request request) {
+		Hosts hosts = this.getOrCreate(request.service());
+		// Request.header(Host.TAG_KEY, Host.TAG_DEF)), 获取Tag, 如果不存在则使用默认""
+		List<Host> matched = hosts.tags(request.get(Host.TAG_KEY, Host.TAG_DEF));
+		// 获取Tag对应Host集合, 如果不存在则使用Main集合
+		return this.valid(request, this.filter.filter(request, matched.isEmpty() ? hosts.main() : matched));
+	}
+
+	private List<Host> valid(Request request, List<Host> hosts) {
+		if (hosts.isEmpty()) {
+			throw new KeplerRoutingException("None service for " + request.service());
+		}
+		return hosts;
 	}
 }

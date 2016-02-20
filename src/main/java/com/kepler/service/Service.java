@@ -19,16 +19,14 @@ public final class Service implements Serializable {
 
 	private final static long serialVersionUID = 1L;
 
-	public final static String DEF_CATALOG = "";
-
-	public final static String DEF_PROFILE = "";
+	private final static String DEF_CATALOG = "";
 
 	private final Class<?> service;
-	
+
 	private final String version;
 
 	private final String catalog;
-	
+
 	private Service(Class<?> service, com.kepler.annotation.Service annotation) {
 		this(service, annotation.version(), annotation.catalog());
 	}
@@ -38,7 +36,7 @@ public final class Service implements Serializable {
 	}
 
 	public Service(String service, String version) throws Exception {
-		this(service, version, Service.DEF_CATALOG);
+		this(service, version, null);
 	}
 
 	public Service(@JsonProperty("service") String service, @JsonProperty("version") String version, @JsonProperty("catalog") String catalog) throws Exception {
@@ -46,16 +44,18 @@ public final class Service implements Serializable {
 	}
 
 	public Service(Class<?> service, String version) {
-		this(service, version, Service.DEF_CATALOG);
+		this(service, version, null);
 	}
 
 	public Service(Class<?> service, String version, String catalog) {
 		super();
 		this.service = service;
 		this.version = version.trim();
-		this.catalog = catalog.trim();
+		// Catalog为Null或""则使用默认值
+		this.catalog = StringUtils.isEmpty(catalog) ? Service.DEF_CATALOG : catalog.trim();
 		Assert.notNull(this.service(), "Class " + service + " can't found service");
-		Assert.notNull(this.version(), "Class " + service + " can't found version");
+		// Version校验为是否包含值
+		Assert.hasText(this.version(), "Class " + service + " can't found version");
 	}
 
 	@JsonProperty
