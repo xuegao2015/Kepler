@@ -35,7 +35,7 @@ Kepler 中，用HeadersContext来负责每个请求的Header的传播。当A执�
 服务通过Server暴露，默认使用ExportedDelegate进行暴露。暴露有两个过程，一个是调用Exported接口的export方法，将服务分别注册到ExportedContext和zookeeper中。二是开启Netty Server，接受用户的请求。
 
 #### Export过程
-服务的export一个责任链模式，每个实现Exported接口的类会按照自己的需要进行相应的操作，其中比较重要的类是DefaultExported, ZkContext和DefaultPromotion；
+服务的export一个责任链模式，每个实现Exported接口的类会按照自己的需要进行相应的操作，其中比较重要的类是DefaultContext, ZkContext和DefaultPromotion；
 
 * DefaultContext把服务实例封装成invoker，DefaultContext同时实现了ExportedContext接口，管理服务类型和服务实例的对应关系。
 
@@ -45,7 +45,6 @@ Kepler 中，用HeadersContext来负责每个请求的Header的传播。当A执�
 
 
 #### 服务调用过程
-ResourceHandler
 
 Server端会启动Netty线程来接受客户端的请求。详细流程如下
 
@@ -55,7 +54,7 @@ channelRead流程
 -> 通过Promotion判断在Netty的Executor线程里做还是在Kepler线程池做
 -> 将请求放入线程池中执行
 </pre>
-至此，Netty的channelRead以结束，真正的执行会在别的线程池里异步执行。接下来分析真正任务执行时的过程：
+至此，Netty的channelReady已结束，真正的执行会在别的线程池里异步执行。接下来分析真正任务执行时的过程：
 
 <pre>
 -> 设置HeadContext，将调用者的Header信息传递过来
