@@ -16,8 +16,8 @@
 * <a href="http://zookeeper.apache.org">`关于ZooKeeper`</a>
 * <a href="https://www.mongodb.org/">`关于MongoDB(可选)`</a>
 <br></br>
-* 内部运转  
-<img src="https://raw.githubusercontent.com/KimShen/Images/master/workflow.png" width="70%"/>  
+* 角色分工  
+<img src="https://raw.githubusercontent.com/KimShen/Images/master/workflow.png" width="100%"/>  
 `角色说明:`
 	* Service:服务提供者
 	* Client: 服务调用者		
