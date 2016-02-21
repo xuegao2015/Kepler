@@ -26,5 +26,5 @@
 <br></br>
 * @See[<a href="quick_start.html">快速尝试</a>]
 * @See[<a href="">使用者手册</a>]
-* @See[<a href="https://github.com/KimShen/Kepler/wiki/%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3">开发者手册(@张皆浩)</a>]
+* @See[<a href="https://github.com/KimShen/Kepler/wiki/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C(@%E5%BC%A0%E7%9A%86%E6%B5%A9)">开发者手册(@张皆浩)</a>]
 * @See[<a href="">管理员手册(@龙耀昆)</a>]
