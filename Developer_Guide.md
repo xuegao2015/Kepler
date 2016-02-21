@@ -54,7 +54,7 @@ channelRead流程
 -> 通过Promotion判断在Netty的Executor线程里做还是在Kepler线程池做
 -> 将请求放入线程池中执行
 </pre>
-至此，Netty的channelReady已结束，真正的执行会在别的线程池里异步执行。接下来分析真正任务执行时的过程：
+至此，Netty的channelRead已结束，真正的执行会在别的线程池里异步执行。接下来分析真正任务执行时的过程：
 
 <pre>
 -> 设置HeadContext，将调用者的Header信息传递过来
@@ -67,7 +67,7 @@ channelRead流程
 
 #### [客户端调用](id:客户端调用)
 ##### Imported接口
-Imported接口有一个订阅服务的subscribe方法，这个接口通用采用责任链的设计，不同的Imported实现用于实现不同的功能逻辑。
+Imported接口有一个订阅服务的subscribe方法，这个接口采用责任链的设计，不同的Imported类实现不同的功能逻辑。
 
 比较重要的Imported实现如下：
 
@@ -114,9 +114,9 @@ Imported接口有一个订阅服务的subscribe方法，这个接口通用采用
 
 通过spring的FactoryBean进行注入。主要类为ImportedServiceFactory。返回给用户的实际对象是通过cglib代理之后的代理类，用户调用这个类的方法其实经过了以下流程
 
-* 通过上下文获取Header，并进行合并，将链路信息传递下去
+* 通过上下文获取Header，进行合并，将链路信息传递下去
 * 将用户的请求封装成Request，并生成Ack
-* 执行Invoker的invoker方法
+* 执行Invoker的invoke方法
 
 ##### 调用流程
 
