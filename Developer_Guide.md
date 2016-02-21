@@ -103,7 +103,7 @@ Imported接口有一个订阅服务的subscribe方法，这个接口通用采用
 	      |	
 	</pre>
 	
-	ChannelContext用来原理主机Host与Netty链路的Mapping映射。
+	ChannelContext用来管理主机Host与Netty链路的Mapping映射。
 	
 		
 * 服务发现
@@ -171,7 +171,7 @@ Zookeeper上会存一份服务的配置信息。当Zookeeper上节点的内容�
 
 * 在Spring注入的时候，会把设置@Config注释的方法放入Config类进行管理。@Config的value字段表示需要监听的配置项，当配置项发生改变时会调用该方法，方法的参数为配置项的值。
 * ZkContext的ConfigWatcher负责监听配置的变化，当Zookeeper上的配置项发生变化时，会调用Config类的config方法，config方法会调用带有@Config注释，并且value字段为发生变化的配置项的方法。
-* 之后Config类会调用实现了ConfigAware接口类的changed方法做后续处理，参数分别为就配置和新配置。
+* 之后Config类会调用实现了ConfigAware接口类的changed方法做后续处理，参数分别为旧配置和新配置。
 
 ### [序列化策略](id:序列化策略)
 #### Request协议
