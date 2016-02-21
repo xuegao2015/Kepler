@@ -25,6 +25,6 @@
 	* Admin: 服务管理中心, 提供服务治理统一入口(API) 
 <br></br>
 * @See[<a href="quick_start.html">快速尝试</a>]
-* * @See[<a href="">使用者手册(@龙耀昆)</a>]
+* * @See[<a href="">使用者手册</a>]
 * @See[<a href="https://github.com/KimShen/Kepler/wiki/%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3">开发者手册(@张皆浩)</a>]
 * @See[<a href="">管理员手册(@龙耀昆)</a>]
