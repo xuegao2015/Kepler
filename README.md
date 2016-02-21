@@ -1,26 +1,30 @@
 ##Kepler Distributed Service Framework
-* 不仅是RPC
+* 不仅是RPC  
 `服务之殇是否记忆犹新？`
 <img src="https://raw.githubusercontent.com/KimShen/Images/master/target.png" width="100%"/>
-* 为什么造轮子
+<br></br>
+* 为什么造轮子  
 `先有Dubbo修补天，ZeroC ICE还在前。巨人的肩膀上才能看的更远。`
-* Kepler Style
+<br></br>
+* Kepler Style  
 `透明代理，无缝集成。我中有你，你中无我。`
 <img src="https://raw.githubusercontent.com/KimShen/Images/master/split.png" width="100%"/>
 `天下代码，合合分分，分分合合。随时切换才能保持正确的姿势。`
-* 上帝视角
+<br></br>
+* 上帝视角  
 <img src="https://raw.githubusercontent.com/KimShen/Images/master/overview.png" width="100%"/>
 * <a href="http://zookeeper.apache.org">`关于ZooKeeper`</a>
 * <a href="https://www.mongodb.org/">`关于MongoDB(可选)`</a>
-* 工程师视角
+<br></br>
+* 内部运转
 <img src="https://raw.githubusercontent.com/KimShen/Images/master/workflow.png" width="100%"/>
-	* 角色说明:
+`角色说明:`
 	* Service:服务提供者
 	* Client: 服务调用者		
 	* Registry: 注册中心
 	* Monitor: 数据收集服务, 收集Service/Client运行时状态
 	* Admin: 服务管理中心, 提供服务治理统一入口(API) 
-- - -
+<br></br>
 * 怎么玩
 	* 如何构建
 		* @See[<a href="install.html">如何安装</a>]
