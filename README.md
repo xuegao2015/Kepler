@@ -16,8 +16,8 @@
 * <a href="http://zookeeper.apache.org">`关于ZooKeeper`</a>
 * <a href="https://www.mongodb.org/">`关于MongoDB(可选)`</a>
 <br></br>
-* 内部运转
-<img src="https://raw.githubusercontent.com/KimShen/Images/master/workflow.png" width="100%"/>
+* 内部运转  
+<img src="https://raw.githubusercontent.com/KimShen/Images/master/workflow.png" width="70%"/>  
 `角色说明:`
 	* Service:服务提供者
 	* Client: 服务调用者		
@@ -25,23 +25,6 @@
 	* Monitor: 数据收集服务, 收集Service/Client运行时状态
 	* Admin: 服务管理中心, 提供服务治理统一入口(API) 
 <br></br>
-<br></br>
 * @See[<a href="quick_start.html">快速尝试</a>]
-* @See[<a href="https://github.com/KimShen/Kepler/wiki/%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3">开发者手册</a>]
-* @See[<a href="https://github.com/KimShen/Kepler/wiki/%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3">管理员手册</a>]
-<br></br>
-* How to play！
-	* 如何构建
-		* @See[<a href="install.html">如何安装</a>]
-		* @See[<a href="quick_start.html">快速尝试</a>]
-		* @See[<a href="maven.html">快速构建(Kepler Maven)</a>]
-		* @See[<a href="deploy.html">部署服务</a>]
-		* @See[<a href="eclipse.html">调试代码(Eclipse)</a>]	
-	* 基础概念
-		* @See[<a href="service.html">服务(Service)</a>]
-		* @See[<a href="tag.html">标签(Tag)</a>]
-		* @See[<a href="group.html">分组(Group)</a>]
-		* @See[<a href="instance.html">实例(Instance)与主机(Host)</a>]
-		* @See[<a href="sid.html">ServerID(SID)</a>]
-	* 项目迁移
-		* @See[<a href="migrate.html">从Dubbo迁移</a>]
+* @See[<a href="https://github.com/KimShen/Kepler/wiki/%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3">开发者手册(@张皆浩)</a>]
+* @See[<a href="">管理员手册(@龙耀昆)</a>]
